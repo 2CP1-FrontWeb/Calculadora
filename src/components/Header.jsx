@@ -4,8 +4,8 @@ import '../css/Header.css';
 function Header() {
     return (
         <div className="header">
-            <h1>Calculadora React</h1>
-            <p>Realize operações matemáticas simples ( + , - , × , ÷ )</p>
+            <h1>Calculadora</h1>
+            <p>Faça cálculos de forma rápida e simples!</p>
         </div>
     );
 }
