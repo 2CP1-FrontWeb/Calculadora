@@ -1,0 +1,27 @@
+.header {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(90deg, #263a4d, #afc8ff, #263a4d); /* degrade futurista */
+  color: #ecefff;
+  padding: 20px;
+  z-index: 1000; /* fica acima de tudo */
+  font-family: 'Orbitron', sans-serif; /* fonte futurista (Google Fonts) */
+}
+
+.header h1 {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.header p {
+  font-size: 18px;
+  margin-top: 0;
+  opacity: 0.9;
+}
+
+body {
+  padding-top: 10px; 
+}

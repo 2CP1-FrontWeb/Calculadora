@@ -1,0 +1,17 @@
+.resultado {
+  margin-top: 40px;
+  text-align: center;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 3px;
+}
+
+.resultado h2 {
+  font-size: 22px;
+  color: #333;
+}
+
+.resultadoSpan {
+  color: #425183;
+  font-weight: bold;
+}

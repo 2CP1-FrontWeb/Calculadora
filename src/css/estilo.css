@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  width: 350px;
+  text-align: center;
+
+}
+
+input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.botoes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 20px;
+  border: none;
+  margin: 8px;
+  border-radius: 5px;
+  background-color: #979797;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #6e769c;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.equal {
+  background-color: #0a0;
+}
+
+.clear {
+  grid-column: span 4;
+  background-color: #a00;
+}
