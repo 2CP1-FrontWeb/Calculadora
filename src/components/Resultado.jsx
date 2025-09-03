@@ -5,11 +5,10 @@ import '../css/resultado.css'
 function Resultado({ resultado }) {
     return (
         <div className="resultado">
-            <h2>
-                Resultado: <span className="resultadoSpan">{resultado}</span>
-            </h2>
+            <h2>Resultado: </h2>
+            <span className="resultadoSpan">{resultado}</span>
         </div>
-    )
+    );
 }
 
-export default Resultado
+export default Resultado;

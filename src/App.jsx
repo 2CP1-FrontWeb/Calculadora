@@ -1,60 +1,89 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import Resultado from "./components/Resultado";
-import "./css/global.css";
-import "./css/estilo.css";
+import "./css/global.css"; // Só Tailwind!
 
 function App() {
-  const [numero1, setNumero1] = useState(0);
-  const [numero2, setNumero2] = useState(0);
+  const [entrada, setEntrada] = useState("");
   const [resultado, setResultado] = useState(null);
 
-  // Funções das operações
-  const somar = () => setResultado(numero1 + numero2);
-  const subtrair = () => setResultado(numero1 - numero2);
-  const multiplicar = () => setResultado(numero1 * numero2);
-  const dividir = () => {
-    if (numero2 === 0) {
-      setResultado("Erro: divisão por zero");
-    } else {
-      setResultado((numero1 / numero2).toFixed(2));
+  // Adiciona número ou operador à expressão
+  const adicionar = (valor) => {
+    setEntrada((prev) => prev + valor);
+  };
+
+  // Calcula o resultado da expressão
+  const calcular = () => {
+    try {
+      const expressao = entrada
+        .replace(/×/g, "*")
+        .replace(/÷/g, "/")
+        .replace(/−/g, "-")
+        .replace(/,/g, ".");
+      const res = eval(expressao);
+      setResultado(res);
+    } catch {
+      setResultado("Erro");
     }
   };
 
+  // Limpa tudo
+  const limpar = () => {
+    setEntrada("");
+    setResultado(null);
+  };
+
+  // Apaga só o último caractere
+  const apagarUltimo = () => {
+    setEntrada((prev) => prev.slice(0, -1));
+  };
+
   return (
-    <div className="container">
-      <div className="box">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-blue-200">
+      <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-xs">
         <Header />
 
-        <form onSubmit={(e) => e.preventDefault()}>
-          <div>
-            <label htmlFor="num1">Número 1:</label>
-            <input
-              type="number"
-              id="num1"
-              onChange={(e) => setNumero1(parseFloat(e.target.value))}
-            />
+        {/* Display da operação e resultado */}
+        <div className="mb-4">
+          <div className="w-full text-right text-3xl font-mono border-b-2 border-blue-300 bg-gray-50 px-3 py-2 mb-2 rounded-lg">
+            {entrada || "0"}
           </div>
+          <div className="w-full text-right text-2xl font-bold text-blue-700 min-h-[32px]">
+            {resultado !== null ? resultado : ""}
+          </div>
+        </div>
 
-          <div>
-            <label htmlFor="num2">Número 2:</label>
-            <input
-              type="number"
-              id="num2"
-              onChange={(e) => setNumero2(parseFloat(e.target.value))}
-            />
-          </div>
-
-          <div className="botoes">
-            <button type="button" onClick={somar}>+</button>
-            <button type="button" onClick={subtrair}>-</button>
-            <button type="button" onClick={multiplicar}>×</button>
-            <button type="button" onClick={dividir}>÷</button>
-          </div>
-        </form>
+        {/* Botões */}
+        <div className="grid grid-cols-4 gap-3">
+          {/* Primeira linha */}
+          <button type="button" onClick={limpar} className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg transition">C</button>
+          <button type="button" onClick={apagarUltimo} className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg transition">⌫</button>
+          <button type="button" onClick={() => adicionar("÷")} className="bg-blue-100 hover:bg-blue-300 text-blue-900 font-bold py-3 rounded-lg text-xl transition">÷</button>
+          <button type="button" onClick={() => adicionar("×")} className="bg-blue-100 hover:bg-blue-300 text-blue-900 font-bold py-3 rounded-lg text-xl transition">×</button>
+          {/* Segunda linha */}
+          {[7,8,9].map((num) => (
+            <button key={num} type="button" onClick={() => adicionar(num.toString())}
+              className="bg-blue-200 hover:bg-blue-400 text-blue-900 font-bold py-3 rounded-lg text-xl transition">{num}</button>
+          ))}
+          <button type="button" onClick={() => adicionar("-")} className="bg-blue-100 hover:bg-blue-300 text-blue-900 font-bold py-3 rounded-lg text-xl transition">−</button>
+          {/* Terceira linha */}
+          {[4,5,6].map((num) => (
+            <button key={num} type="button" onClick={() => adicionar(num.toString())}
+              className="bg-blue-200 hover:bg-blue-400 text-blue-900 font-bold py-3 rounded-lg text-xl transition">{num}</button>
+          ))}
+          <button type="button" onClick={() => adicionar("+")} className="bg-blue-100 hover:bg-blue-300 text-blue-900 font-bold py-3 rounded-lg text-xl transition">+</button>
+          {/* Quarta linha */}
+          {[1,2,3].map((num) => (
+            <button key={num} type="button" onClick={() => adicionar(num.toString())}
+              className="bg-blue-200 hover:bg-blue-400 text-blue-900 font-bold py-3 rounded-lg text-xl transition">{num}</button>
+          ))}
+          <button type="button" onClick={calcular} className="row-span-2 bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 rounded-lg text-xl transition flex items-center justify-center">=</button>
+          {/* Quinta linha */}
+          <button type="button" onClick={() => adicionar("0")}
+            className="col-span-2 bg-blue-200 hover:bg-blue-400 text-blue-900 font-bold py-3 rounded-lg text-xl transition">0</button>
+          <button type="button" onClick={() => adicionar(".")}
+            className="bg-blue-200 hover:bg-blue-400 text-blue-900 font-bold py-3 rounded-lg text-xl transition">,</button>
+        </div>
       </div>
-
-      {resultado !== null && <Resultado resultado={resultado} />}
     </div>
   );
 }

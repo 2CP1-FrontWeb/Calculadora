@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   text-align: center;
-  background: linear-gradient(90deg, #263a4d, #afc8ff, #263a4d); /* degrade futurista */
+  background: linear-gradient(90deg, #567490, #afc8ff, #567490); /* degrade futurista */
   color: #ecefff;
   padding: 20px;
   z-index: 1000; /* fica acima de tudo */
@@ -12,7 +12,7 @@
 }
 
 .header h1 {
-  font-size: 32px;
+  font-size: 35px;
   margin-bottom: 5px;
 }
 
