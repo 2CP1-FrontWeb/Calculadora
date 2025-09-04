@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   text-align: center;
-  background: linear-gradient(90deg,#b2d6f9, #5e8ff7, #b2d6f9); /* degrade futurista */
+  background: linear-gradient(90deg,#b2d6f9, #739cf5, #b2d6f9); /* degrade futurista */
   color: #ecefff;
   padding: 20px;
   z-index: 1000; /* fica acima de tudo */
