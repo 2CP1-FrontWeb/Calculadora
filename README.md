@@ -4,6 +4,6 @@ Giovana Gaspar Larocca - RM:564965
 Giovanna Lins Sayama - RM:565901 
 Rayssa Luzia Portela Aquino - RM:562024
 
-Link do Repositorio:   
+Link do Repositorio: https://github.com/2CP1-FrontWeb/Calculadora
 
 Link da Vercel: 
