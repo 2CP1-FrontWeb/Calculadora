@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-blue-200">
       {/* Calculadora com borda branca */}
-      <div className="bg-white rounded-3xl shadow-2xl p-12 w-full max-w-md border-8 border-white">
+      <div className="bg-white rounded-2xl shadow-2xl p-12 w-full max-w-md border-8 border-white">
         <Header />
 
         {/* Display da operação e resultado */}
@@ -133,7 +133,7 @@ function App() {
           <button
             type="button"
             onClick={calcular}
-            className="row-span-2 bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-6 rounded-xl text-2xl transition shadow flex items-center justify-center"
+            className="row-span-2 bg-yellow-500 hover:bg-yellow-500 text-white font-bold py-6 rounded-xl text-2xl transition shadow flex items-center justify-center"
           >
             =
           </button>
